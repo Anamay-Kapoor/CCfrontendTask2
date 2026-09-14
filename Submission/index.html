@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aetheria Quantum Systems | Home</title>
+<link rel="icon" type="image/x-icon" href="logo.png">
+
+<style>
+    /* Color palette
+    #182030
+    #ffffff
+    turquoise
+    #00f2fe
+    #0004ff
+    #a0aec0
+    gray
+    #2d3748
+    lightgray
+    */
+     body
+    {
+        background-color: #182030;
+        color:  #ffffff;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0; /* Prevents unwanted white borders on the screen edge */
+    }
+    /*finally adding scrollbar*/
+    html
+    {
+        scrollbar-width: thin;
+        scrollbar-color: #00f2fe #2d3748;
+        border-radius: 15px;
+    }
+    
+
+    /*navigation*/
+    .NavigationBarType
+    {
+        background-color: #161930;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 5px solid turquoise;
+        z-index: 100;
+    }
+     .NavigationBarType img{transition: box-shadow 0.2s ease-in;
+    border-radius:5px;}
+    .NavigationBarType img:hover
+    {
+        cursor:pointer;
+        box-shadow: 0 1px 5px turquoise;
+    }
+
+    /* Creates 3 invisible columns of exactly equal width */
+    .nav-col {
+        flex: 1; 
+        display: flex;
+        align-items: center;
+    }
+
+    /* Column 1: Keeps logo fixed to the left edge */
+    .nav-left {
+        justify-content: flex-start;
+    }
+
+    /* Column 2: Locks the name into the dead center */
+    .nav-center {
+        justify-content: center;
+    }
+
+    /* Column 3: Pushes the navigation links to the far right edge */
+    .nav-right {
+        justify-content: flex-end;
+    }
+ 
+    .NavigationBarType .logo
+    {
+        color : turquoise;
+        text-decoration: none;
+        font-size: 35px;
+        font-weight: 250;
+        text-align: center;
+        transition: color 0.3s ease-in-out , text-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .NavigationBarType .logo:hover
+    {
+        color: white;
+        text-shadow:0 0 10px rgb(0, 217, 255);
+    }
+
+    .navig-links a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+         transition: color 0.3s ease-in-out;
+         transition: box-shadow 0.2ss ease;
+    }
+
+    .navig-links a:hover {
+        color: #00f2fe;
+       
+    }
+    /* HERO SECTION */
+    .HeroSection
+    {
+        padding: 75px 15px;
+        text-align : center;
+        font-size :25px;
+        background: linear-gradient(rgba(0, 35, 41, 0.4), rgba(0, 0, 0, 0.7)), #1e2245;
+        
+    }
+    .HeroSection p
+    {
+        font-size: 25px;
+        color: #a0aec0;          
+        margin-bottom: 30px;
+    }
+    .HeroSection a
+    {
+        color: rgb(0, 0, 0);
+        font-size: 30px;
+        text-decoration: none;
+        background-color: #00f2fe;
+        border-radius: 8px;
+        padding:10px 15px;
+        display:inline-block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+    }
+    .HeroSection a:hover
+    {
+        transform: translateY(-5px);
+        box-shadow: 0 0 15px rgb(0, 217, 255);
+         
+    }
+    .HeroSection h1
+    {
+        font-size: 40px;
+        color: #0004ff;
+    }
+
+    /*KEYWORDS & ANIMATIONS AND FLEX CARD */
+    .highlight
+    {
+        transition: color 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+        color:white;
+    }
+    .flex-card:hover .highlight
+    {
+        color:#00f2fe;
+    }
+    
+    .keywords
+    { 
+        font-size: 40px;
+        text-decoration: none; 
+        position: relative;    
+        display: inline-block;
+        color: #00f2fe;
+    }
+    .keywords:after
+    {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;            
+        height: 5px;          
+        background-color: #0066cc; 
+        transition: width 0.3s ease;
+    }
+    .keywords:hover::after
+    {
+        width:100%;
+    }
+
+    /* FEATURES */
+    .features-box 
+    {   background:linear-gradient(90deg,#0066cc ,#00a8b1);
+        padding: 60px 20px;
+        text-align: center;
+        
+    }
+    .features-box h2
+    {
+        font-size:45px;
+        display:inline-block;
+        text-decoration: none; 
+        position: relative;
+        color : #0004ff;
+    }
+    .features-box h2:after {
+        transition : width 0.3s ease;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;            
+        height: 5px;          
+        background-color: #0004ff; 
+    }
+    .features-box h2:hover:after
+    {
+        width : 100%;
+    }
+    .FeatureGrid
+    {
+        display: flex;           
+        flex-wrap: wrap;       
+        justify-content: center;
+        gap : 20px;              
+        margin-top: 30px;
+    }
+    .flex-card
+    {
+        background-color: #161930;
+        backdrop-filter:blur(12px);
+        border: 1px solid rgba(0, 242, 254, 0.25); 
+        border: 1px solid #2d3748;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); 
+        border-radius: 8px;
+        padding: 25px;
+        width: 250px;
+        text-align: left;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease,box-shadow 0.3s ease-in-out,margin 0.3s ease; 
+    }
+    .flex-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 1);
+        border-color:#00063d;
+
+    }
+    .flex-card h3
+    {
+        color:#00f2fe;
+        font-size:25px;
+    }
+    .flex-card {color:gray; }
+
+    /*Queries and handles bottom area*/
+.QueriesHandles
+{
+    display:flex;
+    flex-wrap: wrap;
+    background-color: #0d0f1d;
+    gap:20px;
+    justify-content: space-evenly;
+    font-size:10px;
+    
+    padding-bottom: 5%;
+    
+}
+.Queries
+{
+background-color: #161930;
+        border: 1px solid #2d3748;
+        border-radius: 8px;
+        margin-top:2%;
+        width: 250px;
+        text-align: left;
+        padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
+}
+.Handles
+{
+    
+background-color: #161930;
+        border: 1px solid #2d3748;
+        border-radius: 8px;
+       margin-top:2%;
+        width: 250px;
+        text-align: left;
+        padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
+}
+.Queries:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    
+    
+    transform:scale(1.15);
+}
+.Handles:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    transform:scale(1.15);
+    
+}
+
+.handle:hover
+{
+    cursor:pointer;
+}
+.Handles a
+{font-size:20px;
+text-decoration:none;
+color:white;
+transition : color 0.3s ease-in;
+}
+.handleT
+{font-size:20px;
+    padding-left:10px;
+}
+.Twitter
+{   font-size:20px;
+    padding-left:5px;
+}
+.Handles a:hover{color:#00f2fe;
+cursor:pointer}
+.handle
+{
+   transition : color 0.3s ease-in;
+}
+.handle:hover{color:#00f2fe}
+.QueriesHandles h1
+{
+    font-size:25px;
+    color:white;
+    text-align:left;
+}
+</style>
+</head>
+<body>
+
+<nav class="NavigationBarType">
+    <!-- Left Column: Logo -->
+    <div class="nav-col nav-left">
+        <img src="logo.png" width="30" height="30" alt="Logo">
+    </div>
+
+    <!-- Center Column: Main Brand Name -->
+    <div class="nav-col nav-center">
+        <a href="index.html" class="logo" title="Go to Home Page">AETHERIA</a>
+    </div>
+
+    <!-- Right Column: Navigation Links -->
+    <div class="nav-col nav-right">
+        <div class="navig-links">
+            <a href="index.html" title="Home Page">Home</a>
+            <a href="terminals.html" title="Learn About Us">About Us</a>
+            <a href="book.html" title="Book your Next Jump">Bookings</a>
+        </div>
+    </div>
+</nav>
+
+<header class="HeroSection">
+    <h1>Travel <span class="keywords">Anywhere</span> <span class="keywords">Anytime</span> <span class="keywords">Instantly</span></h1>
+    <p>The world's first ever teleportation network.</p>
+    <a href="book.html">Book your Next Jump</a>
+</header>
+
+<main class="features-box">
+    <h2>Why Us?</h2>
+    <div class="FeatureGrid">
+        <div class="flex-card">
+            <h3>Zero Travel Time</h3>
+            <p>Arrive in <span class = "highlight">zero time </span> regardless of location.</p>
+        </div>
+        <div class="flex-card">
+            <h3>Luxury Lounges</h3>
+            <p><span class = "highlight">Relax comfortably in the luxury suites</span> while waiting for your signature atomic profile to be prepared.</p>
+        </div>
+        <div class="flex-card">
+            <h3>Safety comes first for us</h3>
+            <p>Our advanced micro-adjusters <span class = "highlight">ensure utmost care</span> in capturing your complete physical structure.</p>
+        </div>
+    </div>
+    
+</main>
+
+<div class = "QueriesHandles">
+    <div class = "Queries">
+        <h1>For Queries , Contact:</h1>
+        <h2>📞+3279203283005</h2>
+        <h2>📞+3279203283006</h2>
+        <h2>📞+3279203283007</h2>
+        <h2>📞+3279203283008</h2>
+        
+        
+    </div>
+    <div class = "Handles">
+        <h1>Follow us for Updates:</h1>
+        <h2><a href="https://www.instagram.com" title="Check us out on Instagram">📷 <span class ="handle">Instagram</span></a></h2>
+        <h2> 𝕏<a href = "https://x.com" title="Check us out on Twitter" ><span class= "handleT">Twitter</span> </a></h2>
+        <h2>🌐<span class= "handle" title="Check us out on Matrix Space">   Matrix Space</span> </h2>
+
+
+
+    </div>
+</div>
+
+</body>
+</html>

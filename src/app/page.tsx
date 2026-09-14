@@ -30,7 +30,7 @@ export default function IndexPage() {
           <div className={`${styles['nav-col']} ${styles['nav-right']}`}>
             <div className={styles['navig-links']}>
               <Link href="/" title="Home Page">Home</Link>
-              <Link href="/booking" title="Learn About Us">Terminal</Link>
+              <Link href="/terminal" title="Learn About Us">Terminal</Link>
               <Link href="/booking" title="Book your Next Jump">Bookings</Link>
             </div>
           </div>
