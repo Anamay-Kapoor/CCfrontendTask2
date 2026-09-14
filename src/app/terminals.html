@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aetheria Quantum Systems | Home</title>
+<link rel="icon" type="image/x-icon" href="logo.png">
+
+<style>
+   body
+    {
+        background-color: #0d0f1d;
+        color:  #ffffff;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0; /* Prevents unwanted white borders on the screen edge */
+    }
+    /*finally adding scrollbar*/
+    html
+    {
+        scrollbar-width: thin;
+        scrollbar-color: #00f2fe #2d3748;
+        border-radius: 15px;
+    }
+    
+
+    /*navigation*/
+    .NavigationBarType
+    {
+        background-color: #161930;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 5px solid turquoise;
+        z-index: 100;
+    }
+     .NavigationBarType img{transition: box-shadow 0.2s ease-in;
+    border-radius:5px;}
+    .NavigationBarType img:hover
+    {
+        box-shadow: 0 1px 5px turquoise;
+    }
+
+    /* Creates 3 invisible columns of exactly equal width */
+    .nav-col {
+        flex: 1; 
+        display: flex;
+        align-items: center;
+    }
+
+    /* Column 1: Keeps logo fixed to the left edge */
+    .nav-left {
+        justify-content: flex-start;
+    }
+
+    /* Column 2: Locks the name into the dead center */
+    .nav-center {
+        justify-content: center;
+    }
+
+    /* Column 3: Pushes the navigation links to the far right edge */
+    .nav-right {
+        justify-content: flex-end;
+    }
+ 
+    .NavigationBarType .logo
+    {
+        color : turquoise;
+        text-decoration: none;
+        font-size: 35px;
+        font-weight: 250;
+        text-align: center;
+        transition: color 0.3s ease-in-out , text-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .NavigationBarType .logo:hover
+    {
+        color: white;
+        text-shadow:0 0 10px rgb(0, 217, 255);
+    }
+
+    .navig-links a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+         transition: color 0.3s ease-in-out;
+         transition: box-shadow 0.2ss ease;
+    }
+
+    .navig-links a:hover {
+        color: #00f2fe;
+        
+    }
+    /*Table Editing*/
+    h1
+    {
+        text-align:center;
+        color:#00f2fe;
+    }
+    table{
+        width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      margin-top:10px;
+      margin-bottom:10px;
+      
+      
+    }
+    thead{font-size:25px;
+    background-color:#161930;
+}
+    th,td{border:2px solid black;
+    
+    
+    padding:10px 5px;
+transition: border 0.2s ease;}
+/* td :focus
+    {
+        border: 2px solid #00f2fe ;
+    } Not working*/
+    td
+    
+    {color:white;
+        font-size:20px;
+    }
+    th{color:#00f2fe;}
+/*odd even stuff*/
+tbody tr:nth-child(odd) 
+{
+        background-color: #182030;
+    }
+tbody tr:nth-child(even)
+{
+   background-color: #161930;
+}
+
+    /*details and collapsable metrics arrow thing*/
+:root {
+  interpolate-size: allow-keywords;
+}
+
+/*adding collapsable status attempt 3*/
+details::details-content {
+  height: 0;
+  overflow: hidden;
+ content-visibility: visible;;
+  transition-property: height, opacity, content-visibility;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  transition-behavior: allow-discrete; /* Essential: keeps text rendered during transition */
+}
+details[open]::details-content {
+  height: auto;
+  opacity: 1;
+  content-visibility:visible;
+}
+details summary {
+  cursor:pointer;
+  outline: none;
+  padding: 5px 0;
+  transition:color 0.3s ease-in-out;
+}
+details summary:hover
+{
+    color:#00f2fe;
+}
+details summary:focus
+{
+    color:#00f2fe;
+}
+/*For the queries page and tags + handles*/
+.QueriesHandles
+{
+    display:flex;
+    flex-wrap: wrap;
+    background-color: #0d0f1d;
+    gap:20px;
+    justify-content: space-evenly;
+    font-size:10px;
+    
+    padding-bottom: 5%;
+    
+}
+.Queries
+{
+background-color: #161930;
+        border: 1px solid #2d3748;
+        border-radius: 8px;
+        margin-top:2%;
+        width: 250px;
+        text-align: left;
+        padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
+}
+.Handles
+{
+    
+background-color: #161930;
+        border: 1px solid #2d3748;
+        border-radius: 8px;
+       margin-top:2%;
+        width: 250px;
+        text-align: left;
+        padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
+}
+.Queries:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    
+    
+    transform:scale(1.15);
+}
+.Handles:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    transform:scale(1.15);
+    
+}
+
+.handle:hover
+{
+    cursor:pointer;
+}
+.Handles a
+{font-size:20px;
+text-decoration:none;
+color:white;
+transition : color 0.3s ease-in;
+}
+.handleT
+{font-size:20px;
+    padding-left:10px;
+}
+.Twitter
+{   font-size:20px;
+    padding-left:5px;
+}
+.Handles a:hover{color:#00f2fe;
+cursor:pointer}
+.handle
+{
+   transition : color 0.3s ease-in;
+}
+.handle:hover{color:#00f2fe}
+.QueriesHandles h1
+{
+    font-size:25px;
+    color:white;
+    text-align:left;
+}
+/*A responsive image gallery of stations/equipment using CSS Grid (repeat() + auto-fit/auto-fill)*/
+.gallery-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px; 
+  padding: 16px;
+}
+
+.g_item img {
+  width:auto;
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px;
+  border: 4px solid #00f2fe;
+  transition:box-shadow 0.3s ease , transform 0.3s ease,padding 0.3s ease;
+  
+  
+}
+/*hover over maps*/
+.g_item img:hover
+{
+    animation-play-state:paused;
+    transform:scale(1.6);
+    box-shadow:0 0 15px #0066cc;
+   
+    
+    
+
+}
+.g_item:hover
+{
+box-shadow:  0 0 5px #00f2fe;
+padding:50px;
+
+}
+.g_item
+{
+    object-fit: cover;
+  border: 4px solid #2d3748;
+  border-radius:8px;
+  background-color: #161930;
+  display: flex;
+  flex-direction: column;
+  animation :Float 8s ease-in-out infinite;/*animation*/
+  transition:box-shadow 0.3s ease,padding 0.3s ease,transform 0.2s ease;;
+  
+  
+}
+/*full map*/
+.map-box
+{padding: 16px;
+display: grid;
+justify-content: center;
+}
+.map img
+{object-fit: cover; 
+    box-shadow: 0 0 5px #00f2fe;
+    overflow:hidden;
+    transition:transform 0.2s ease;
+}
+.map img:hover
+{
+    transform:scale(1.2)
+}
+
+/*adding an infinite scrolling image view*/
+.g_item:nth-child(1)
+{
+    animation-delay: 0s;
+}
+.g_item:nth-child(2)
+{
+ animation-delay: 0.3s;
+}
+.g_item:nth-child(3)
+{
+     animation-delay: 0.7s;
+}
+.g_item:nth-child(4)
+{
+     animation-delay:1.2s;
+     
+}
+@keyframes Float
+{
+    0%
+    {
+        transform:translateY(0);
+    }
+    50%
+    {
+        transform:translateY(-15px);
+    }
+    100%
+    {
+        transform: translateY(0px);
+    }
+    
+}
+
+/*FAQ AREA*/
+.FAQs
+{
+    display:flex;
+    flex-direction: column;
+    padding:10px 15px;
+    background-color:#0d0f1d;
+    border: 5px solid #161930;
+}
+.FAQs h2
+{
+    color:#00f2fe;
+    font-size:30px;
+    font-family:'Times New Roman', Times, serif;
+}
+.Question
+{
+    padding:10px 15px;
+    font-size:25px;
+    background-color:#0d0f1d;
+    border:2px solid #182030;
+    transition:border-color 0.3s ease;
+}
+.Question:hover
+{
+    border-color:#0066cc;
+}
+.ans
+{
+    font-size:20px;
+    padding:10px 15px;
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="NavigationBarType">
+    <div class="nav-col nav-left">
+        <a href = "index.html">
+        <img src="logo.png" width="30" height="30" alt="Logo">
+        </a>
+    </div>
+    <div class="nav-col nav-center">
+        <a href="index.html" class="logo" title="Go to Home Page">AETHERIA</a>
+    </div>
+    <div class="nav-col nav-right">
+        <div class="navig-links">
+            <a href="index.html" title="Home Page">Home</a>
+            <a href="terminals.html" title="Learn About Us">About Us</a>
+            <a href="book.html" title="Book your Next Jump">Bookings</a>
+        </div>
+    </div>
+</nav>
+
+<h1 class = "Table-head">Telemetry And Status Table</h1>
+<!--TABLE STARTS HERE-->
+<table>
+<thead>
+    <tr>
+        <th>
+            Core Hub
+        </th>
+        <th>
+            Core Quantum Frequency
+        </th>
+        <th>Aetheria Syncronisation status </th>
+        <th>Link Status</th>
+    </tr>
+
+</thead>
+<tr>
+    <td>London Whitechapel</td>
+    <td>789.32</td>
+    <td>Stable</td>
+   
+    <td>
+    <details>
+        <summary>View Link Metrics</summary>
+        
+<p>Tokyo Kanto Aperture Core Hub Distance:9,560 km | Status: COUPLED </p>
+<p>New York Hex Core Hub Distance:5,570 km | Status: COUPLED </p>
+<p>Shanghai Prime Dome Core Hub Distance:9,200 km | Status: UNSTABLE </p>
+<p>Guangzou Core Hub Distance:9,500 km | Status: COUPLED </p>
+<p>Cairo Core Hub Distance:3,510 km | Status: UNSTABLE </p>
+<p>Seoul Permafrost Shield Core Hub Distance:8,860 km | Status: MAINTAINANCE </p>
+<p>New Delhi Core Hub Distance:6,710 km | Status: COUPLED </p>
+<p>New Mexico City Core Hub Distance:8,930 km | Status: SEVERED </p>
+
+    </details>
+</td>
+</tr>
+<tr>
+    <td>Tokyo Kanto Aperture</td>
+    <td>123.32</td>
+    <td>Stable</td>
+    <td><details>
+        <summary>View Link Metrics</summary>
+        <p>London Whitechapel Core Hub Distance:9,560 km | Status: COUPLED </p>
+<p>New York Hex Core Hub Distance:10,850 km | Status: MAINTENANCE </p>
+<p>Shanghai Prime Dome Core Hub Distance:1,760 km | Status: UNSTABLE </p>
+<p>Guangzou Core Hub Distance:2,900 km | Status: COUPLED </p>
+<p>Cairo Core Hub Distance:9,510 km | Status: UNSTABLE </p>
+<p>Seoul Permafrost Shield Core Hub Distance:1,160 km | Status: COUPLED </p>
+<p>New Delhi Core Hub Distance:5,840 km | Status: MAINTENANCE </p>
+<p>New Mexico City Core Hub Distance:11,310 km | Status: SEVERED </p>
+
+    </details></td>
+</tr>
+<tr>
+    <td>New York Hex</td>
+    <td>342.19</td>
+    <td>Stable</td>
+    <td><details>
+        <summary>View Link Metrics</summary>
+        <p>London Whitechapel Core Hub Distance:5,570 km | Status: COUPLED </p>
+        <p>Tokyo Kanto Aperture Core Hub Distance:10,850 km | Status: COUPLED </p>
+        <p>Shanghai Prime Dome Core Hub Distance:11,850 km | Status: UNSTABLE </p>
+        <p>Guangzou Core Hub Distance:12,860 km | Status: COUPLED </p>
+        <p>Cairo Core Hub Distance:9,020 km | Status: UNSTABLE </p>
+        <p>Seoul Permafrost Shield Core Hub Distance:11,050 km | Status: COUPLED </p>
+        <p>New Delhi Core Hub Distance:11,760 km | Status: MAINTENANCE </p>
+        <p>New Mexico City Core Hub Distance:3,360 km | Status: SEVERED </p>
+    </details></td>
+</tr>
+
+<tr>
+    <td>Shanghai Prime Dome</td>
+    <td>654.81</td>
+    <td>Unstable</td>
+    <td><details>
+        <summary>View Link Metrics</summary>
+        <p>London Whitechapel Core Hub Distance:9,200 km | Status: COUPLED </p>
+        <p>Tokyo Kanto Aperture Core Hub Distance:1,760 km | Status: COUPLED </p>
+        <p>New York Hex Core Hub Distance:11,850 km | Status: MAINTENANCE </p>
+        <p>Guangzou Core Hub Distance:1,210 km | Status: COUPLED </p>
+        <p>Cairo Core Hub Distance:8,370 km | Status: UNSTABLE </p>
+        <p>Seoul Permafrost Shield Core Hub Distance:830 km | Status: COUPLED </p>
+        <p>New Delhi Core Hub Distance:4,260 km | Status: MAINTENANCE </p>
+        <p>New Mexico City Core Hub Distance:12,940 km | Status: SEVERED </p>
+    </details></td>
+</tr>
+
+<tr>
+    <td>Guangzou Core</td>
+    <td>512.04</td>
+    <td>Stable</td>
+    <td><details>
+        <summary>View Link Metrics</summary>
+        <p>London Whitechapel Core Hub Distance:9,500 km | Status: COUPLED </p>
+        <p>Tokyo Kanto Aperture Core Hub Distance:2,900 km | Status: COUPLED </p>
+        <p>New York Hex Core Hub Distance:12,860 km | Status: MAINTENANCE </p>
+        <p>Shanghai Prime Dome Core Hub Distance:1,210 km | Status: UNSTABLE </p>
+        <p>Cairo Core Hub Distance:8,010 km | Status: UNSTABLE </p>
+        <p>Seoul Permafrost Shield Core Hub Distance:2,010 km | Status: COUPLED </p>
+        <p>New Delhi Core Hub Distance:3,650 km | Status: MAINTENANCE </p>
+        <p>New Mexico City Core Hub Distance:14,110 km | Status: SEVERED </p>
+    </details></td>
+</tr>
+
+<tr>
+    <td>Cairo Core</td>
+    <td>198.72</td>
+    <td>Unstable</td>
+    <td><details>
+        <summary>View Link Metrics</summary>
+        <p>London Whitechapel Core Hub Distance:3,510 km | Status: COUPLED </p>
+        <p>Tokyo Kanto Aperture Core Hub Distance:9,510 km | Status: COUPLED </p>
+        <p>New York Hex Core Hub Distance:9,020 km | Status: MAINTENANCE </p>
+        <p>Shanghai Prime Dome Core Hub Distance:8,370 km | Status: UNSTABLE </p>
+        <p>Guangzou Core Hub Distance:8,010 km | Status: COUPLED </p>
+        <p>Seoul Permafrost Shield Core Hub Distance:8,480 km | Status: COUPLED </p>
+        <p>New Delhi Core Hub Distance:4,410 km | Status: MAINTENANCE </p>
+        <p>New Mexico City Core Hub Distance:12,340 km | Status: SEVERED </p>
+    </details></td>
+</tr>
+
+<tr>
+    <td>Seoul Permafrost Shield</td>
+    <td>881.44</td>
+    <td>Stable</td>
+    <td><details>
+        <summary>View Link Metrics</summary>
+        <p>London Whitechapel Core Hub Distance:8,860 km | Status: COUPLED </p>
+        <p>Tokyo Kanto Aperture Core Hub Distance:1,160 km | Status: COUPLED </p>
+        <p>New York Hex Core Hub Distance:11,050 km | Status: MAINTENANCE </p>
+        <p>Shanghai Prime Dome Core Hub Distance:830 km | Status: UNSTABLE </p>
+        <p>Guangzou Core Hub Distance:2,010 km | Status: COUPLED </p>
+        <p>Cairo Core Hub Distance:8,480 km | Status: UNSTABLE </p>
+        <p>New Delhi Core Hub Distance:4,680 km | Status: MAINTENANCE </p>
+        <p>New Mexico City Core Hub Distance:12,210 km | Status: SEVERED </p>
+    </details></td>
+</tr>
+
+<tr>
+    <td>New Delhi Core</td>
+    <td>421.90</td>
+    <td>Maintenance</td>
+    <td><details>
+        <summary>View Link Metrics</summary>
+        <p>London Whitechapel Core Hub Distance:6,710 km | Status: COUPLED </p>
+        <p>Tokyo Kanto Aperture Core Hub Distance:5,840 km | Status: COUPLED </p>
+        <p>New York Hex Core Hub Distance:11,760 km | Status: MAINTENANCE </p>
+        <p>Shanghai Prime Dome Core Hub Distance:4,260 km | Status: UNSTABLE </p>
+        <p>Guangzou Core Hub Distance:3,650 km | Status: COUPLED </p>
+        <p>Cairo Core Hub Distance:4,410 km | Status: UNSTABLE </p>
+        <p>Seoul Permafrost Shield Core Hub Distance:4,680 km | Status: COUPLED </p>
+        <p>New Mexico City Core Hub Distance:14,420 km | Status: SEVERED </p>
+    </details></td>
+</tr>
+
+<tr>
+    <td>New Mexico City</td>
+    <td>0.00</td>
+    <td>Severed</td>
+    <td><details>
+        <summary>View Link Metrics</summary>
+        <p>London Whitechapel Core Hub Distance:8,930 km | Status: COUPLED </p>
+        <p>Tokyo Kanto Aperture Core Hub Distance:11,310 km | Status: COUPLED </p>
+        <p>New York Hex Core Hub Distance:3,360 km | Status: MAINTENANCE </p>
+        <p>Shanghai Prime Dome Core Hub Distance:12,940 km | Status: UNSTABLE </p>
+        <p>Guangzou Core Hub Distance:14,110 km | Status: COUPLED </p>
+        <p>Cairo Core Hub Distance:12,340 km | Status: UNSTABLE </p>
+        <p>Seoul Permafrost Shield Core Hub Distance:12,210 km | Status: COUPLED </p>
+        <p>New Delhi Core Hub Distance:14,420 km | Status: MAINTENANCE </p>
+    </details></td>
+</tr>
+
+</table>
+</body>
+<!--IMAGE GALLERY-->
+<div class="gallery-box">
+  <div class="g_item">
+    <img src="Delhi.png" width="300" height="300" alt="Delhi Core Hub">
+    <h3>New Delhi</h3>
+  </div>
+  <div class="g_item">
+    <img src="whitechapel.png" width="300" height="300" alt="London Whitechapel Core Hub">
+    <h3>Whitechapel</h3>
+  </div>
+  <div class="g_item">
+    <img src="Tokyo.png" width="300" height="300" alt="Kanto Aperture">
+    <h3>Kanto Aperture</h3>
+  </div>
+  <div class="g_item">
+    <img src="newyork.png"  width="300" height="300"alt="New York Hex">
+    <h3>New York Hex </h3>
+  </div>
+  <div class="g_item">
+    <img src="Seoul.png" width="300" height="300" alt="Seoul Permafrost Shield">
+    <h3>Seoul Permafrost Shield</h3>
+  </div>
+  <div class="g_item">
+    <img src="Cairo.png" width="300" height="300" alt="Cairo">
+    <h3>Cairo</h3>
+  </div>
+  <div class="g_item">
+    <img src="Guanzou.png" width="300" height="300" alt="Guangzou">
+    <h3>Guangzou</h3>
+  </div>
+  <div class="g_item">
+    <img src="Shanghai.png" width="300" height="300" alt="Shanghai">
+    <h3>Shanghai Prime</h3>
+  </div>
+
+</div>
+<div class="map-box">
+    <div class="map">
+        <img src="mapcopy.png" alt="All our Core Hub">
+    </div>
+</div>
+<!--FAQ-->
+<div class = "FAQs">
+    <h2>Frequently Asked Questions</h2>
+<details>
+    <summary class = "Question">Q1:What happens to my consciousness during molecular deconstruction?</summary>
+    <div class = "ans">Aetheria Systems utilizes an advanced consciousness fragmentation system coupled with a continuous neural-flow network . The sensory perception of deconstruction is harmless. Customers will only feel a sensory dulling for approximately 0.000053 seconds during which the main areass of your conciousness is transferred.</div>
+</details>
+<details>
+    <summary class = "Question">Q2:Why is my terminal link listed as SEVERED or UNSTABLE?</summary>  
+        <div class = "ans">Aetheria Systems ensures utmost safety for its most valued customers. A link is declared SEVERED or UNSTABLE if it does not come under the safe quantum frequency range of 200Ghz to 600Ghz with respect to the departure and arrival terminal location. This data is kept confidential for security reasons.What you see is the standalone frequency emmission value of the Core Hub. </div>
+    </summary>
+</details>
+<details>
+    <summary class ="Question">Q3:What happens if the connection severs or becomes unstable during transfer?</summary>
+    <div class = "ans">It is not possible for the connection to become unstable during the transfer window as neuro-class personal transfer couplers are deployed to make micro-adjustments and ensure safety.</div>
+</details>
+<details>
+    <summary class = "Question">Q4:How does Aetheria compare to legacy mechanical transit methods?</summary>
+    <div class = "ans">There is no comparison. Burning fossil fuels to drag metal tubes through the dirt is a primitive relic of the past century. Aetheria does not travel across distance—we conquer it. We have rendered obstacles like oceans,borders, and time entirely obsolete.</div>
+</details>
+<details>
+<summary class="Question">Can I request a refund if my departure window faces a scheduling buffer?</summary>
+  <div class="ans">
+    Aetheria Systems is a triumph of human engineering, not a consumer entitlement.By booking with Aetheria, you are purchasing a privilege. Delays only occur to ensure your absolute protection. Refund requests will be permanently archived.Kindly do not load our esteemed customer service helpline with refund requests. Any and all attempts will suspend your access to this service for a set perioud of time.</div>
+</details>
+</div>
+
+    <div class = "QueriesHandles">
+    <div class = "Queries">
+        <h1>For Queries , Contact:</h1>
+        <h2>📞+3279203283005</h2>
+        <h2>📞+3279203283006</h2>
+        <h2>📞+3279203283007</h2>
+        <h2>📞+3279203283008</h2>
+        
+        
+    </div>
+    <div class = "Handles">
+        <h1>Follow us for Updates:</h1>
+        <h2><a href="https://www.instagram.com" title="Check us out on Instagram">📷 <span class ="handle">Instagram</span></a></h2>
+        <h2> 𝕏<a href = "https://x.com" title="Check us out on Twitter" ><span class= "handleT">Twitter</span> </a></h2>
+        <h2>🌐<span class= "handle" title="Check us out on Matrix Space">   Matrix Space</span> </h2>
+
+
+
+    </div>
+</div>
+</html>

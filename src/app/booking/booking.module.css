@@ -1,0 +1,523 @@
+/*body */
+ body
+    {
+        background-color: #182030;
+        color:  #ffffff;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0; 
+    }
+    /*finally adding scrollbar*/
+    html
+    {
+        scrollbar-width: thin;
+        scrollbar-color: #00f2fe #2d3748;
+        border-radius: 15px;
+    }
+    /*same thing from terminals.html ie the animation for opening ..details with extra stuff for T&C*/
+    :root {
+  interpolate-size: allow-keywords;
+}
+:global(details)::details-content {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition-property: height, opacity, content-visibility;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  transition-behavior: allow-discrete; /* Essential: keeps text rendered during transition */
+}
+:global(details[open])::details-content {
+  height: auto;
+  opacity: 1;
+}
+:global(details)    
+{
+    background-color:#0d0f1d ;
+}
+:global(details summary) {
+  cursor:pointer;
+  outline: none;
+  padding: 5px 0;
+  transition:color 0.3s ease-in-out;
+  font-size:25px;
+  border:2px solid #2d3748;
+  border-radius:5px;
+}
+.details summary:hover
+{
+    color:#00f2fe;
+}
+.details summary:focus
+{
+    color:#00f2fe;
+}
+.terms
+{   text-align:left;
+    padding:10px;
+    display:flex;
+    flex-direction: column;
+    background-color: #161930;
+    border: 1px solid #2d3748;
+    
+}
+.terms h2
+{
+text-decoration:underline;
+color:#00f2fe;
+font-size:23px;
+}
+.terms p
+{
+    font-size:15px;
+    color:lightgray;
+    background-color: #0d0f1d;
+    padding:10px 10px;
+    border-radius: 5px;
+    border:2px solid #2d3748;
+    transition: box-shadow 0.2s ease , transform 0.3s ease, font-size 0.3s ease;
+}
+.terms p:hover
+{
+    box-shadow:0 0 2px #ffffff;
+    transform:translateY(-5px);
+    font-size:20px;
+}
+/*highlighting keywords in T&C*/
+.highlight
+    {
+        transition: color 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+        color:white;
+    }
+.terms p:hover .highlight
+{
+    color:#00f2fe;
+}
+    /*navigation*/
+    .NavigationBarType
+    {
+        background-color: #161930;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 5px solid turquoise;
+        z-index: 100;
+    }
+     .NavigationBarType img{transition: box-shadow 0.2s ease-in;
+    border-radius:5px;}
+    .NavigationBarType img:hover
+    {
+        cursor:pointer;
+        box-shadow: 0 1px 5px turquoise;
+    }
+
+    /* Creates 3 invisible columns of exactly equal width */
+    .nav-col {
+        flex: 1; 
+        display: flex;
+        align-items: center;
+    }
+
+    /* Column 1: Keeps logo fixed to the left edge */
+    .nav-left {
+        justify-content: flex-start;
+    }
+
+    /* Column 2: Locks the name into the dead center */
+    .nav-center {
+        justify-content: center;
+    }
+
+    /* Column 3: Pushes the navigation links to the far right edge */
+    .nav-right {
+        justify-content: flex-end;
+    }
+ 
+    .NavigationBarType .logo
+    {
+        color : turquoise;
+        text-decoration: none;
+        font-size: 35px;
+        font-weight: 250;
+        text-align: center;
+        transition: color 0.3s ease-in-out , text-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .NavigationBarType .logo:hover
+    {
+        color: white;
+        text-shadow:0 0 10px rgb(0, 217, 255);
+    }
+
+    .navig-links a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+         transition: color 0.3s ease-in-out;
+         transition: box-shadow 0.2ss ease;
+    }
+
+    .navig-links a:hover {
+        color: #00f2fe;
+        
+    }
+    /*For keyframe animation + the class for blob and status*/
+    @keyframes pulse-blob{ 
+            0% { transform: scale(0.6); opacity: 0.4; }
+            
+            
+            50% { transform: scale(1.2); opacity: 1; }
+            
+            
+            100% { transform: scale(0.6); opacity: 0.4; }
+        } /*     \_('_')_/  pulse effect 7 animations dont work, 5 doesnt work, 3 looks good */
+    .blobanim{
+        height:10px;
+        width : 10px;
+        background-color: #00f2fe;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 10px;
+        animation : pulse-blob 1.2s infinite ease-in-out; 
+        box-shadow: 0 0 15px #00f2fe;
+    }
+    .blob
+    {
+        margin:10px; 
+        padding:10px 0px;
+        background-color:  #161930;
+        font-size: 30px;
+        color:#00f2fe;
+        margin-top:50px;
+        text-align: center;
+        border: 1px solid #000000;
+        box-shadow:0 0 5px black;
+    }
+/*labels and border for form*/
+.form {
+            background-color: #161930;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #000000;
+            margin: 10px;
+            margin-bottom:0px;
+            box-shadow:0 0 5px black;
+        }
+:global(label) {
+            display: block;
+            margin-top: 15px;
+           
+            font-weight: bold;
+            font-size: 25px;
+            color: #a0aec0;
+            text-align:left;
+        }
+        
+/*Inputs area + .buttons*/
+.button
+{
+    font-size:30px;
+    margin-top:15px;
+    margin-bottom:15px;
+     background-color: #0d0f1d;
+    border: 1px solid #2d3748;
+    color:white;
+    padding:10px 25px;
+    cursor:pointer;
+}
+.button:hover
+{
+    color:#00f2fe;
+}
+.button:focus
+{
+    color:#0004ff;
+}
+.inputs
+{
+    text-align:center;
+}
+input:focus, select:focus {
+            outline: none;
+            border-color: #00f2fe;
+             
+        }
+/* booking.module.css */
+.textInput,
+.emailInput,
+.numberInput,
+.dateTimeInput,
+.selectInput {
+    width: 100%;
+    padding: 12px;
+    background-color: #0d0f1d;
+    border: 1px solid #2d3748;
+    color: #ffffff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;    
+    margin: 2px;
+}
+
+        
+.input:focus{
+            
+            border-color: #00f2fe; /*works now -> highlighting input box*/
+        }
+        /*safetyfirststuff*/
+
+   
+
+    /*safety .buttons*/
+    .checkbox-group {
+            margin-top: 10px;
+            background-color: #0d0f1d;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #2d3748;
+            text-align:left;
+            
+        }
+        .checkbox-group label {
+            display:inline;
+            gap:10px;
+             margin-bottom: 10px;
+            font-weight: normal;
+            font-size: 20px;
+            color: #ffffff;
+        }
+        .checkbox-group label:hover
+        {
+            cursor:pointer;
+        }
+        .checkbox-group a:hover
+        {
+            text-shadow: 0 0 5px #00f1feb7;
+        }
+    
+    /*Queries and handles bottom area*/
+.QueriesHandles
+{
+    display:flex;
+    flex-wrap: wrap;
+    background-color: #0d0f1d;
+    gap:20px;
+    justify-content: space-evenly;
+    font-size:10px;
+    
+    padding-bottom: 5%;
+    
+}
+.Queries
+{
+background-color: #161930;
+        border: 1px solid #2d3748;
+        border-radius: 8px;
+        margin-top:2%;
+        width: 250px;
+        text-align: left;
+        padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
+}
+.Handles
+{
+    
+background-color: #161930;
+        border: 1px solid #2d3748;
+        border-radius: 8px;
+       margin-top:2%;
+        width: 250px;
+        text-align: left;
+        padding:20px 25px;
+        box-shadow:0 0 5px #00f2fe;
+        transition:box-shadow 0.2s ease , transform 0.3s ease-in;
+}
+.Queries:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    
+    
+    transform:scale(1.15);
+}
+.Handles:hover
+{
+    box-shadow :0 0 5px #0004ff;
+    transform:scale(1.15);
+    
+}
+
+.handle:hover
+{
+    cursor:pointer;
+}
+.Handles a
+{font-size:20px;
+text-decoration:none;
+color:white;
+transition : color 0.3s ease-in;
+}
+.handleT
+{font-size:20px;
+    padding-left:10px;
+}
+.Twitter
+{   font-size:20px;
+    padding-left:5px;
+}
+.Handles a:hover{color:#00f2fe;
+cursor:pointer}
+.handle
+{
+   transition : color 0.3s ease-in;
+}
+.handle:hover{color:#00f2fe}
+.QueriesHandles h1
+{
+    font-size:25px;
+    color:white;
+    text-align:left;
+}
+.handle
+{
+    font-size:20px;
+ }
+
+/*Fares*/
+.fareBox {
+  margin-top: 10px;
+  background-color: #0d0f1d;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #2d3748;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fareTitle {
+ 
+  font-size:25px;
+  color: #ffffff;
+  
+  margin: 3px;
+  text-align: center;
+}
+
+
+
+
+/* floating warning card window box for max weight*/
+.wlOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #161930; 
+  backdrop-filter: blur(8px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100; /*push to top layer*/
+}
+
+
+.wlBox {
+  background-color: #182030;
+  border: 2px solid #00f2fe; 
+  padding: 30px;
+  border-radius: 6px;
+  color: #ffffff;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+}
+
+.wlHead {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  font-weight: bold;
+  font-size:xx-large;
+  color: #00f2fe;
+}
+
+.wlText {
+  margin: 0 0 20px 0;
+   font-size:x-large;
+  color: #a0aec0;
+  
+  line-height: 1.5;
+}
+
+.wlBtn {
+  background-color: turquoise;
+  color: #182030;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+}
+
+.wlBtn:hover {
+  box-shadow: 0 0 10px turquoise;
+}
+
+/*extra stuff*/
+.inputs h1
+{
+    font-size:28px;
+}
+
+/*modal popup for confirmation*/
+.bcBox {
+  background-color: #182030;
+  border: 2px solid #00f2fe;
+  padding: 24px;
+  border-radius: 6px;
+  color: #ffffff;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.bcHead {
+  margin: 0 0 8px 0;
+  font-size: 27px;
+  font-weight: bold;
+  color: #00f2fe;
+}
+
+.bcText {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  color: white;
+}
+
+.bcIdBox {
+  background-color: #2d3748;
+  padding: 12px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 16px;
+  border: 1px solid #a0aec0;
+  margin-bottom: 20px;
+  color: #00f2fe;
+}
+
+.bcBtn {
+  background-color: turquoise;
+  color: #182030;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+}
